@@ -157,7 +157,7 @@ if ($CallingHome['Active']) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span class="navbar-brand"><?php echo $Reflector->GetReflectorName(); ?> Reflector | IPV4: <?php echo $PageOptions['IPV4']; ?> | IPV6: <?php echo $PageOptions['IPV6']; ?></span>
+            <span class="navbar-brand"><?php echo $Reflector->GetReflectorName(); ?> Reflector | IPv4: <?php echo $PageOptions['IPV4']; ?> | IPv6: <?php echo $PageOptions['IPV6']; ?></span>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
