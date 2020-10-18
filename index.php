@@ -89,7 +89,10 @@ if ($CallingHome['Active']) {
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title><?php echo $Reflector->GetReflectorName(); ?> Reflector Dashboard</title>
-    <link rel="icon" href="./favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96">
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -197,7 +200,7 @@ if ($CallingHome['Active']) {
                     require_once("./include/repeaters.php");
                     break;
                 default           :
-                    require_once("./pgs/users.php");
+                    require_once("./include/users.php");
             }
 
             ?>
