@@ -155,7 +155,7 @@ for ($i=0;$i<$Reflector->StationCount();$i++) {
       </table>
    </div>
    <div class="col-md-3">
-      <a href="https://m17project.org"><img src="/images/m17_logo.svg" width="100%"></a>
+      <a href="https://m17project.org"><img class="hidden-xs hidden-sm" src="/images/m17_logo.svg" width="100%"></a>
       <table class="table table-striped table-hover">
          <?php 
 
