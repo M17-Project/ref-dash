@@ -16,4 +16,4 @@ cd /var/www/html/include
 sudo cp config.inc.php.dist config.inc.php
 ```
 
-- **include/config.inc.php** - At a minimum set your email address, country and comment. **Do not** enable the calling home feature. This feature is not appropriate for mrefd.
+- **include/config.inc.php** - At a minimum set your email address, IPv4, IPv6, country and comment. **Do not** enable the calling home feature. This feature is not appropriate for mrefd.

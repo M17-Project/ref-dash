@@ -18,7 +18,7 @@ $PageOptions['ContactEmail']                         = 'your_email';            
 $PageOptions['IPV4']                                 = 'refl_ipv4_address';                // Reflector IPV4 Address
 $PageOptions['IPV6']                                 = 'refl_ipv6_address';                // Reflector IPV6 Address - if none use NONE
 
-$PageOptions['DashboardVersion']                     = '1.0.0';                            // Dashboard Version
+$PageOptions['DashboardVersion']                     = '1.0.1';                            // Dashboard Version
 
 $PageOptions['PageRefreshActive']                    = true;                               // Activate automatic refresh
 $PageOptions['PageRefreshDelay']                     = '10000';                            // Page refresh time in miliseconds

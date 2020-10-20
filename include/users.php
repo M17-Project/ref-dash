@@ -129,8 +129,8 @@ for ($i=0;$i<$Reflector->StationCount();$i++) {
         <td>';
 
         list ($Flag, $Name) = $Reflector->GetFlag($Reflector->Stations[$i]->GetCallSign());
-        if (file_exists("./images/flags/" . $Flag . ".png")) {
-            echo '<a href="#" class="tip"><img src="./images/flags/' . $Flag . '.png" class="table-flag" alt="' . $Name . '"><span>' . $Name . '</span></a>';
+        if (file_exists("./images/flags/" . $Flag . ".svg")) {
+            echo '<a href="#" class="tip"><img src="./images/flags/' . $Flag . '.svg" class="table-flag" alt="' . $Name . '"><span>' . $Name . '</span></a>';
         }
         echo '</td>
    <td><a href="https://www.qrz.com/db/' . $Reflector->Stations[$i]->GetCallsignOnly() . '" class="pl" target="_blank">' . $Reflector->Stations[$i]->GetCallsignOnly() . '</a></td>
