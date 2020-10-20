@@ -129,7 +129,7 @@ for ($i=0;$i<$Reflector->StationCount();$i++) {
         <td>';
 
         list ($Flag, $Name) = $Reflector->GetFlag($Reflector->Stations[$i]->GetCallSign());
-        if (file_exists("./images/flags/" . $Flag . ".png")) {
+        if (file_exists("./images/flags/" . $Flag . ".svg")) {
             echo '<a href="#" class="tip"><img src="./images/flags/' . $Flag . '.svg" class="table-flag" alt="' . $Name . '" width="32"><span>' . $Name . '</span></a>';
         }
         echo '</td>
