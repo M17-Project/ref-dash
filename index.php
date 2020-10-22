@@ -195,7 +195,7 @@ if ($CallingHome['Active']) {
     </div>
 </main>
 <footer class="container-fluid">
-    <nav class="navbar fixed-bottom">
+    <nav class="navbar navbar-dark bg-dark fixed-bottom">
         <span class="text-muted"><a href="mailto:<?php echo $PageOptions['ContactEmail']; ?>"><?php echo $PageOptions['ContactEmail']; ?></a></span>
             </nav>
 </footer>
