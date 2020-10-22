@@ -161,8 +161,8 @@ if ($CallingHome['Active']) {
             <li<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php">Last Heard</a></li>
             <li<?php echo ($_GET['show'] == "repeaters") ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php?show=repeaters">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
         </ul>
-        <span class="navbar-text">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v<?php echo $PageOptions['DashboardVersion']; ?></span>
-        <span class="navbar-text">Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
+        <span class="navbar-text px-2">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v<?php echo $PageOptions['DashboardVersion']; ?></span>
+        <span class="navbar-text px-2">Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
     </div>
 </nav>
 
