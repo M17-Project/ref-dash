@@ -194,10 +194,9 @@ if ($CallingHome['Active']) {
         </div>
     </div>
 </main>
-<footer class="footer">
+<footer class="footer mt-auto py-3">
     <div class="container">
-        <p><a href="mailto:<?php echo $PageOptions['ContactEmail']; ?>"><?php echo $PageOptions['ContactEmail']; ?></a>
-        </p>
+        <span class="text-muted"><a href="mailto:<?php echo $PageOptions['ContactEmail']; ?>"><?php echo $PageOptions['ContactEmail']; ?></a></span>
     </div>
 </footer>
 
