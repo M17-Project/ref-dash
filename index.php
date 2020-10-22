@@ -165,35 +165,35 @@ if ($CallingHome['Active']) {
         <span class="navbar-text px-2">Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
     </div>
 </nav>
-
-<div class="container-fluid">
-    <div class="row">
-        <?php 
-            /* Do we really want to keep calling home?
-            if ($CallingHome['Active']) {
-                if (!is_readable($CallingHome['HashFile']) && (!is_writeable($CallingHome['HashFile']))) {
-                    echo '
-                        <div class="error">
-                            your private hash in ' . $CallingHome['HashFile'] . ' could not be created, please check your config file and the permissions for the defined folder.
-                        </div>';
+<main role="main">
+    <div class="container-fluid">
+        <div class="row">
+            <?php 
+                /* Do we really want to keep calling home?
+                if ($CallingHome['Active']) {
+                    if (!is_readable($CallingHome['HashFile']) && (!is_writeable($CallingHome['HashFile']))) {
+                        echo '
+                            <div class="error">
+                                your private hash in ' . $CallingHome['HashFile'] . ' could not be created, please check your config file and the permissions for the defined folder.
+                            </div>';
+                    }
                 }
-            }
-            */
-            switch ($_GET['show']) {
-                case 'users'      :
-                    require_once("./include/users.php");
-                    break;
-                case 'repeaters'  :
-                    require_once("./include/repeaters.php");
-                    break;
-                default           :
-                    require_once("./include/users.php");
-            }
+                */
+                switch ($_GET['show']) {
+                    case 'users'      :
+                        require_once("./include/users.php");
+                        break;
+                    case 'repeaters'  :
+                        require_once("./include/repeaters.php");
+                        break;
+                    default           :
+                        require_once("./include/users.php");
+                }
 
-            ?>
+                ?>
+        </div>
     </div>
-</div>
-
+</main>
 <footer class="footer">
     <div class="container">
         <p><a href="mailto:<?php echo $PageOptions['ContactEmail']; ?>"><?php echo $PageOptions['ContactEmail']; ?></a>
