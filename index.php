@@ -195,11 +195,9 @@ if ($CallingHome['Active']) {
     </div>
 </main>
 <footer class="container-fluid">
-    <nav class="navbar navbar-dark bg-dark fixed-bottom">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">IPv4: <?php echo $PageOptions['IPV4']; ?>></li>
-            <li class="nav-item">IPv6: <?php echo $PageOptions['IPV6']; ?>></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-bottom" style="background-color: #e3f2fd;">
+        <span class="nav-item">IPv4: <?php echo $PageOptions['IPV4']; ?></span>
+        <span class="nav-item">IPv6: <?php echo $PageOptions['IPV6']; ?></span>
         <span class="text-muted"><a href="mailto:<?php echo $PageOptions['ContactEmail']; ?>"><?php echo $PageOptions['ContactEmail']; ?></a></span>
     </nav>
 </footer>
