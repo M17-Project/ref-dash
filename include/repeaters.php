@@ -2,7 +2,7 @@
 	<tr class="table-center">
 		<th>#</th>
 		<th>Flag</th>
-		<th">DV Station</th>
+		<th>DV Station</th>
 		<th>Band</th>
 		<th>Last Heard</th>
 		<th>Linked for</th>
