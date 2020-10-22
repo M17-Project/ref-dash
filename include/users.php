@@ -87,7 +87,7 @@ if (isset($_GET['do'])) {
             <th>Suffix</th>
             <th>DPRS</th>
             <th>Via / Peer</th>
-            <th>Last heard</th>
+            <th>Last heard (UTC)</th>
             <th><img src="./images/ear.png" alt="Listening on" /></th>
          </tr>
         <?php
