@@ -158,10 +158,11 @@ if ($CallingHome['Active']) {
     </button>
     <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
-            <li<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="active"' : ''; ?>><a href="./index.php">Last Heard</a></li>
-            <li<?php echo ($_GET['show'] == "repeaters") ? ' class="active"' : ''; ?>><a href="./index.php?show=repeaters">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
+            <li class="nav-item active"<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="active"' : ''; ?>><a class="nav-link" href="./index.php">Last Heard</a></li>
+            <li class="nav-item"<?php echo ($_GET['show'] == "repeaters") ? ' class="active"' : ''; ?>><a class="nav-link" href="./index.php?show=repeaters">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
         </ul>
-        <span class="navbar-text">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v<?php echo $PageOptions['DashboardVersion']; ?> Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
+        <span class="navbar-text">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v<?php echo $PageOptions['DashboardVersion']; ?></span>
+        <span class="navbar-text">Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
     </div>
 </nav>
 
