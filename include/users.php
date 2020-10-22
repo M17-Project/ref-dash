@@ -146,7 +146,7 @@ if (isset($_GET['do'])) {
 </div>
 
 <div class="col-md-3">
-    <?php echo '<a href="' . $PageOptions['Homepage'] . '><img class="mx-auto d-none d-md-block" src="./images/' . $PageOptions['Logo'] . '" width="50%"></a>'; ?>
+    <?php echo '<a href="' . $PageOptions['Homepage'] . '"><img class="mx-auto d-none d-md-block" src="./images/' . $PageOptions['Logo'] . '" width="50%"></a>'; ?>
     <!-- <a href="https://m17project.org"><img class="mx-auto d-none d-md-block" src="./images/m17_logo.svg" width="50%"></a> -->
     <table class="table table-sm table-striped table-hover">
         <?php 
