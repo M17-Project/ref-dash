@@ -146,7 +146,7 @@ if (isset($_GET['do'])) {
 </div>
 
 <div class="col-md-3">
-    <a href="https://m17project.org"><img class="d-none d-md-block" src="./images/m17_logo.svg" width="100%"></a>
+    <a href="https://m17project.org"><img class="mx-auto d-none d-md-block" src="./images/m17_logo.svg" width="50%"></a>
     <table class="table table-striped table-hover">
         <?php 
             $Modules = $Reflector->GetModules();
