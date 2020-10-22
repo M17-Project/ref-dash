@@ -152,25 +152,16 @@ if ($CallingHome['Active']) {
 } ?>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="#"><?php echo $Reflector->GetReflectorName(); ?> Reflector</a>
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <span class="navbar-brand"> | IPv4: <?php echo $PageOptions['IPV4']; ?> | IPv6: <?php echo $PageOptions['IPV6']; ?></span>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="navbar-info">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard
-                    v<?php echo $PageOptions['DashboardVersion']; ?></li>
-                <li class="navbar-info">Service
-                    uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></li>
-            </ul>
-        </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-info">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard
+                v<?php echo $PageOptions['DashboardVersion']; ?></li>
+            <li class="navbar-info">Service
+                uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></li>
+        </ul>
     </div>
 </nav>
 
