@@ -48,47 +48,47 @@ if (isset($_GET['do'])) {
 ?>
 
 <div class="col-md-9">
-      <table class="table table-striped table-hover">
-<?php
-if ($PageOptions['UserPage']['ShowFilter']) {
-  echo '
- <tr>
-   <th colspan="8">
-      <table width="100%" border="0">
-         <tr>
-            <td align="left">
-               <form name="frmFilterCallSign" method="post" action="./index.php">
-                  <input type="hidden" name="do" value="SetFilter" />
-                  <input type="text" class="FilterField" value="'.$_SESSION['FilterCallSign'].'" name="txtSetCallsignFilter" placeholder="Callsign" onfocus="SuspendPageRefresh();" onblur="setTimeout(ReloadPage, '.$PageOptions['PageRefreshDelay'].');" />
-                  <input type="submit" value="Apply" class="FilterSubmit" />
-               </form>
-            </td>';
-              if (($_SESSION['FilterModule'] != null) || ($_SESSION['FilterCallSign'] != null)) {
-                  echo '
-         <td><a href="./index.php?do=resetfilter" class="smalllink">Disable filters</a></td>';
-              }
-              echo '            
-            <td align="right" style="padding-right:3px;">
-               <form name="frmFilterModule" method="post" action="./index.php">
-                  <input type="hidden" name="do" value="SetFilter" />
-                  <input type="text" class="FilterField" value="'.$_SESSION['FilterModule'].'" name="txtSetModuleFilter" placeholder="Module" onfocus="SuspendPageRefresh();" onblur="setTimeout(ReloadPage, '.$PageOptions['PageRefreshDelay'].');" />
-                  <input type="submit" value="Apply" class="FilterSubmit" />
-               </form>
-            </td>
-      </table>
-   </th>
-</tr>';
-}
-?>
+    <table class="table table-sm table-striped table-hover">
+        <?php
+            if ($PageOptions['UserPage']['ShowFilter']) {
+                echo '
+                    <tr>
+                        <th colspan="8">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td align="left">
+                                        <form name="frmFilterCallSign" method="post" action="./index.php">
+                                        <input type="hidden" name="do" value="SetFilter" />
+                                        <input type="text" class="FilterField" value="'.$_SESSION['FilterCallSign'].'" name="txtSetCallsignFilter" placeholder="Callsign" onfocus="SuspendPageRefresh();" onblur="setTimeout(ReloadPage, '.$PageOptions['PageRefreshDelay'].');" />
+                                        <input type="submit" value="Apply" class="FilterSubmit" />
+                                        </form>
+                                    </td>';
+                if (($_SESSION['FilterModule'] != null) || ($_SESSION['FilterCallSign'] != null)) {
+                    echo '
+                        <td><a href="./index.php?do=resetfilter" class="smalllink">Disable filters</a></td>';
+                }
+                echo '            
+                    <td align="right" style="padding-right:3px;">
+                        <form name="frmFilterModule" method="post" action="./index.php">
+                        <input type="hidden" name="do" value="SetFilter" />
+                        <input type="text" class="FilterField" value="'.$_SESSION['FilterModule'].'" name="txtSetModuleFilter" placeholder="Module" onfocus="SuspendPageRefresh();" onblur="setTimeout(ReloadPage, '.$PageOptions['PageRefreshDelay'].');" />
+                        <input type="submit" value="Apply" class="FilterSubmit" />
+                        </form>
+                    </td>
+                </table>
+            </th>
+        </tr>';
+        }
+        ?>
          <tr class="table-center">   
-            <th class="col-md-1">#</th>
-            <th class="col-md-1">Flag</th>
-            <th class="col-md-2">Callsign</th>
-            <th class="col-md-2">Suffix</th>
-            <th class="col-md-1">DPRS</th>
-            <th class="col-md-2">Via / Peer</th>
-            <th class="col-md-2">Last heard</th>
-            <th class="col-md-1"><img src="./images/ear.png" alt="Listening on" /></th>
+            <th>#</th>
+            <th>Flag</th>
+            <th>Callsign</th>
+            <th>Suffix</th>
+            <th>DPRS</th>
+            <th>Via / Peer</th>
+            <th>Last heard</th>
+            <th><img src="./images/ear.png" alt="Listening on" /></th>
          </tr>
 <?php
 
