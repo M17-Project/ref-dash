@@ -6,6 +6,8 @@
  *  The dashboard is based of the Bootstrap dashboard template.
  * 
  *  This code is further edited by KC1AWV for the M17 Reflector M17-M17
+ * 
+ *  version 1.1.0 - Bootstrap 4.5
 */
 
 if (file_exists("./include/functions.php")) {
@@ -148,7 +150,8 @@ if ($CallingHome['Active']) {
 <?php if (file_exists("./tracking.php")) {
     include_once("tracking.php");
 } ?>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#"><?php echo $Reflector->GetReflectorName(); ?> Reflector</a>
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -158,7 +161,7 @@ if ($CallingHome['Active']) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span class="navbar-brand"><?php echo $Reflector->GetReflectorName(); ?> Reflector | IPv4: <?php echo $PageOptions['IPV4']; ?> | IPv6: <?php echo $PageOptions['IPV6']; ?></span>
+            <span class="navbar-brand"> | IPv4: <?php echo $PageOptions['IPV4']; ?> | IPv6: <?php echo $PageOptions['IPV6']; ?></span>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
