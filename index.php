@@ -157,6 +157,10 @@ if ($CallingHome['Active']) {
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="active"' : ''; ?>><a href="./index.php">Last Heard</a></li>
+            <li<?php echo ($_GET['show'] == "repeaters") ? ' class="active"' : ''; ?>><a href="./index.php?show=repeaters">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
+        </ul>
         <span class="navbar-text">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v<?php echo $PageOptions['DashboardVersion']; ?> Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
     </div>
 </nav>
