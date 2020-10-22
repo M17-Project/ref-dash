@@ -157,9 +157,7 @@ if ($CallingHome['Active']) {
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navbarCollapse" class="collapse navbar-collapse">
-        <span class="navbar-text">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v<?php echo $PageOptions['DashboardVersion']; ?> 
-        Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?>
-        </span>
+        <span class="navbar-text">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v<?php echo $PageOptions['DashboardVersion']; ?> Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
     </div>
 </nav>
 
