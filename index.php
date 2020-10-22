@@ -194,10 +194,10 @@ if ($CallingHome['Active']) {
         </div>
     </div>
 </main>
-<footer class="footer mt-auto py-3">
-    <div class="container">
+<footer class="container-fluid">
+    <nav class="navbar fixed-bottom">
         <span class="text-muted"><a href="mailto:<?php echo $PageOptions['ContactEmail']; ?>"><?php echo $PageOptions['ContactEmail']; ?></a></span>
-    </div>
+            </nav>
 </footer>
 
 <!-- Bootstrap core JavaScript
