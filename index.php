@@ -168,26 +168,17 @@ if ($CallingHome['Active']) {
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="active"' : ''; ?>><a
-                            href="./index.php">Last Heard</a></li>
-                <li<?php echo ($_GET['show'] == "repeaters") ? ' class="active"' : ''; ?>><a
-                            href="./index.php?show=repeaters">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-            <?php
+        <?php 
+            /* Do we really want to keep calling home?
             if ($CallingHome['Active']) {
                 if (!is_readable($CallingHome['HashFile']) && (!is_writeable($CallingHome['HashFile']))) {
                     echo '
-         <div class="error">
-            your private hash in ' . $CallingHome['HashFile'] . ' could not be created, please check your config file and the permissions for the defined folder.
-         </div>';
+                        <div class="error">
+                            your private hash in ' . $CallingHome['HashFile'] . ' could not be created, please check your config file and the permissions for the defined folder.
+                        </div>';
                 }
             }
-
+            */
             switch ($_GET['show']) {
                 case 'users'      :
                     require_once("./include/users.php");
@@ -200,8 +191,6 @@ if ($CallingHome['Active']) {
             }
 
             ?>
-
-        </div>
     </div>
 </div>
 
