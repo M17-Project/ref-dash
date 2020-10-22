@@ -147,7 +147,7 @@ if (isset($_GET['do'])) {
 
 <div class="col-md-3">
     <a href="https://m17project.org"><img class="mx-auto d-none d-md-block" src="./images/m17_logo.svg" width="50%"></a>
-    <table class="table table-striped table-hover">
+    <table class="table table-sm table-striped table-hover">
         <?php 
             $Modules = $Reflector->GetModules();
             sort($Modules, SORT_STRING);
