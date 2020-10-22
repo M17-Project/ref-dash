@@ -47,8 +47,7 @@ if (isset($_GET['do'])) {
 
 ?>
 
-<div class="row">
-   <div class="col-md-9">
+<div class="col-md-9">
       <table class="table table-striped table-hover">
 <?php
 if ($PageOptions['UserPage']['ShowFilter']) {
@@ -152,8 +151,8 @@ for ($i=0;$i<$Reflector->StationCount();$i++) {
 
 ?> 
  
-      </table>
-   </div>
+    </table>
+
    <div class="col-md-3">
       <a href="https://m17project.org"><img class="hidden-xs hidden-sm" src="./images/m17_logo.svg" width="100%"></a>
       <table class="table table-striped table-hover">
