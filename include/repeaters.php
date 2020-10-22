@@ -1,4 +1,4 @@
-<table class="table table-striped table-hover">
+<table class="table table-sm table-striped table-hover">
 	<tr class="table-center">
 		<th>#</th>
 		<th>Flag</th>
