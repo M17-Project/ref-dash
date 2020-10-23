@@ -6,6 +6,8 @@
  *  The dashboard is based of the Bootstrap dashboard template.
  * 
  *  This code is further edited by KC1AWV for the M17 Reflector M17-M17
+ * 
+ *  version 1.1.0 - Bootstrap 4.5
 */
 
 if (file_exists("./include/functions.php")) {
@@ -96,11 +98,13 @@ if ($CallingHome['Active']) {
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    -->
 
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/navbar-top-fixed.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -147,82 +151,68 @@ if ($CallingHome['Active']) {
 <?php if (file_exists("./tracking.php")) {
     include_once("tracking.php");
 } ?>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <span class="navbar-brand"><?php echo $Reflector->GetReflectorName(); ?> Reflector | IPv4: <?php echo $PageOptions['IPV4']; ?> | IPv6: <?php echo $PageOptions['IPV6']; ?></span>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="navbar-info">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard
-                    v<?php echo $PageOptions['DashboardVersion']; ?></li>
-                <li class="navbar-info">Service
-                    uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></li>
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#"><?php echo $Reflector->GetReflectorName(); ?> Reflector</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php">Last Heard</a></li>
+            <li<?php echo ($_GET['show'] == "repeaters") ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php?show=repeaters">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
+        </ul>
+        <span class="navbar-text px-2">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v<?php echo $PageOptions['DashboardVersion']; ?></span>
+        <span class="navbar-text px-2">Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
     </div>
 </nav>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="active"' : ''; ?>><a
-                            href="./index.php">Last Heard</a></li>
-                <li<?php echo ($_GET['show'] == "repeaters") ? ' class="active"' : ''; ?>><a
-                            href="./index.php?show=repeaters">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-            <?php
-            if ($CallingHome['Active']) {
-                if (!is_readable($CallingHome['HashFile']) && (!is_writeable($CallingHome['HashFile']))) {
-                    echo '
-         <div class="error">
-            your private hash in ' . $CallingHome['HashFile'] . ' could not be created, please check your config file and the permissions for the defined folder.
-         </div>';
+<main role="main">
+    <div class="container-fluid">
+        <div class="row">
+            <?php 
+                /* Do we really want to keep calling home?
+                if ($CallingHome['Active']) {
+                    if (!is_readable($CallingHome['HashFile']) && (!is_writeable($CallingHome['HashFile']))) {
+                        echo '
+                            <div class="error">
+                                your private hash in ' . $CallingHome['HashFile'] . ' could not be created, please check your config file and the permissions for the defined folder.
+                            </div>';
+                    }
                 }
-            }
+                */
+                switch ($_GET['show']) {
+                    case 'users'      :
+                        require_once("./include/users.php");
+                        break;
+                    case 'repeaters'  :
+                        require_once("./include/repeaters.php");
+                        break;
+                    default           :
+                        require_once("./include/users.php");
+                }
 
-            switch ($_GET['show']) {
-                case 'users'      :
-                    require_once("./include/users.php");
-                    break;
-                case 'repeaters'  :
-                    require_once("./include/repeaters.php");
-                    break;
-                default           :
-                    require_once("./include/users.php");
-            }
-
-            ?>
-
+                ?>
         </div>
     </div>
-</div>
-
-<footer class="footer">
-    <div class="container">
-        <p><a href="mailto:<?php echo $PageOptions['ContactEmail']; ?>"><?php echo $PageOptions['ContactEmail']; ?></a>
-        </p>
-    </div>
+</main>
+<footer class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-bottom" style="background-color: #e3f2fd;">
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <span class="navbar-text px-2">IPv4: <?php echo $PageOptions['IPV4']; ?></span>
+            <span class="navbar-text px-2">IPv6: <?php echo $PageOptions['IPV6']; ?></span>
+        </div>
+        <span class="navbar-text px-2"><a href="mailto:<?php echo $PageOptions['ContactEmail']; ?>">Sysop Email: <?php echo $PageOptions['ContactEmail']; ?></a></span>
+    </nav>
 </footer>
 
 <!-- Bootstrap core JavaScript
  ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug
 <script src="js/ie10-viewport-bug-workaround.js"></script>
+        -->
 </body>
 </html>
