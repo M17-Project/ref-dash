@@ -29,6 +29,7 @@ sudo cp config.inc.php.dist config.inc.php
   - IPV6 - set this to the IPv6 address of the reflector, if not used, enter NONE
   - Homepage - set this to your homepage, defaults to m17project
   - Logo - set this to the filename of your logo, defaults to M17 logo
+  - LocalModification - set this to your local modification version number if you modify the main code
 
 **Do not** enable the calling home feature. This feature is not appropriate for mrefd.
 

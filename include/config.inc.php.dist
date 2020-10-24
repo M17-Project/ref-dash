@@ -20,7 +20,8 @@ $PageOptions['IPV6']                                 = 'refl_ipv6_address';     
 $PageOptions['Homepage']                             = 'https://m17project.org';           // Link to homepage for logo
 $PageOptions['Logo']                                 = 'm17_logo.svg';                     // Logo image - SVG preferred - place in /images/
 
-$PageOptions['DashboardVersion']                     = '1.1.0';                            // Dashboard Version
+$PageOptions['LocalModification']                    = '';                                 // If you modify the dashboard code, you can say so here
+                                                                                           // with your mod version number, otherwise leave blank
 
 $PageOptions['PageRefreshActive']                    = true;                               // Activate automatic refresh
 $PageOptions['PageRefreshDelay']                     = '10000';                            // Page refresh time in miliseconds
