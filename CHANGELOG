@@ -1,0 +1,15 @@
+v1.1.0
+
+* Refactor code for Bootstrap 4.5
+* Change page layout for Bootstrap 4.5
+
+v1.0.1
+
+* Fix flag icons to show England
+* Switch flag icons to SVG images
+* Merge oe1kbc/patch-1 to fix logo image
+
+v1.0.0
+
+* Remove XLX branding
+* Refactor code to read mrefd

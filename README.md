@@ -31,3 +31,7 @@ sudo cp config.inc.php.dist config.inc.php
   - Logo - set this to the filename of your logo, defaults to M17 logo
 
 **Do not** enable the calling home feature. This feature is not appropriate for mrefd.
+
+### Caveat
+
+If you notice that the formatting of the page does not look correct, please be sure to clear your browser's cache!
