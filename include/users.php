@@ -87,10 +87,31 @@ if (isset($_GET['do'])) {
             <th>Suffix</th>
             <th>DPRS</th>
             <th>Via / Peer</th>
-            <th>Last heard (UTC)</th>
+            <th>Last heard</th>
             <th><img src="./images/ear.png" alt="Listening on" /></th>
          </tr>
         <?php
+            function elapsedTime ($time){
+            
+                $time = time() - $time; // to get the time since that moment
+                $time = ($time<1)? 1 : $time;
+                $tokens = array (
+                    31536000 => 'year',
+                    2592000 => 'month',
+                    604800 => 'week',
+                    86400 => 'day',
+                    3600 => 'hour',
+                    60 => 'minute',
+                    1 => 'second'
+                );
+            
+                foreach ($tokens as $unit => $text) {
+                    if ($time < $unit) continue;
+                    $numberOfUnits = floor($time / $unit);
+                    return $numberOfUnits.' '.$text.(($numberOfUnits>1)?'s':'');
+                }
+            
+            }
             $Reflector->LoadFlags();
             for ($i=0;$i<$Reflector->StationCount();$i++) {
                 $ShowThisStation = true;
@@ -112,29 +133,29 @@ if (isset($_GET['do'])) {
                 if ($ShowThisStation) {
                     echo '
                         <tr class="table-center">
-                            <td>';
+                            <td class="align-middle">';
                                 if ($i == 0 && $Reflector->Stations[$i]->GetLastHeardTime() > (time() - 60)) {
                                     echo '<img src="./images/tx.gif" style="margin-top:3px;" height="20"/>';
                                 } else {
                                     echo($i + 1);
                                 }
                             echo '</td>
-                            <td>';
+                            <td class="align-middle">';
                                 list ($Flag, $Name) = $Reflector->GetFlag($Reflector->Stations[$i]->GetCallSign());
                                 if (file_exists("./images/flags/" . $Flag . ".svg")) {
                                     echo '<a href="#" class="tip"><img src="./images/flags/' . $Flag . '.svg" class="table-flag" alt="' . $Name . '"><span>' . $Name . '</span></a>';
                                 }
                             echo '</td>
-                            <td><a href="https://www.qrz.com/db/' . $Reflector->Stations[$i]->GetCallsignOnly() . '" class="pl" target="_blank">' . $Reflector->Stations[$i]->GetCallsignOnly() . '</a></td>
-                            <td>' . $Reflector->Stations[$i]->GetSuffix() . '</td>
-                            <td><a href="http://www.aprs.fi/' . $Reflector->Stations[$i]->GetCallsignOnly() . '" class="pl" target="_blank"><img src="./images/sat.png" alt=""></a></td>
-                            <td>' . $Reflector->Stations[$i]->GetVia();
+                            <td class="align-middle"><a href="https://www.qrz.com/db/' . $Reflector->Stations[$i]->GetCallsignOnly() . '" class="pl" target="_blank">' . $Reflector->Stations[$i]->GetCallsignOnly() . '</a></td>
+                            <td class="align-middle">' . $Reflector->Stations[$i]->GetSuffix() . '</td>
+                            <td class="align-middle"><a href="http://www.aprs.fi/' . $Reflector->Stations[$i]->GetCallsignOnly() . '" class="pl" target="_blank"><img src="./images/sat.png" alt=""></a></td>
+                            <td class="align-middle">' . $Reflector->Stations[$i]->GetVia();
                             if ($Reflector->Stations[$i]->GetPeer() != $Reflector->GetReflectorName()) {
                                 echo ' / ' . $Reflector->Stations[$i]->GetPeer();
                             }
                             echo '</td>
-                            <td>' . @date("d.m.Y H:i", $Reflector->Stations[$i]->GetLastHeardTime()) . '</td>
-                            <td>' . $Reflector->Stations[$i]->GetModule() . '</td>
+                            <td>' . @date("d.m.Y H:i", $Reflector->Stations[$i]->GetLastHeardTime()) . '<br />(about ' . elapsedTime($Reflector->Stations[$i]->GetLastHeardTime()) . ' ago.)</td>
+                            <td class="align-middle">' . $Reflector->Stations[$i]->GetModule() . '</td>
                         </tr>';
                 }
                 if ($i == $PageOptions['LastHeardPage']['LimitTo']) {
