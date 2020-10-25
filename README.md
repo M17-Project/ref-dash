@@ -1,4 +1,4 @@
-# MREFD ref-dash
+# [MREFD](https://github.com/n7tae/mrefd) ref-dash
 
 This is the dashboard as seen on [M17-M17 Reflector](https://ref.m17.link) to be used with mrefd.
 
