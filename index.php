@@ -75,8 +75,8 @@ if ($CallingHome['Active']) {
 } else {
     $Hash = "";
 }
-?>
 */
+?>
 
 <!DOCTYPE html>
 <html lang="en">
