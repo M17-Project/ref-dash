@@ -1,13 +1,11 @@
 <?php
 
 /*
- *  This dashboard is being developed by the DVBrazil Team as a courtesy to
- *  the XLX Multiprotocol Gateway Reflector Server project.
- *  The dashboard is based of the Bootstrap dashboard template.
+ *  This dashboard is developed by KC1AWV for the mrefd M17
+ *  reflector system. It is derived from the XLX dashboard
+ *  originally developed by the DVBrazil team.
  * 
- *  This code is further edited by KC1AWV for the M17 Reflector M17-M17
- * 
- *  version 1.1.0 - Bootstrap 4.5
+ *  version 1.1.2
 */
 
 if (file_exists("./include/functions.php")) {
@@ -18,7 +16,7 @@ if (file_exists("./include/functions.php")) {
 if (file_exists("./include/config.inc.php")) {
     require_once("./include/config.inc.php");
 } else {
-    die("config.inc.php does not exist.");
+    die("config.inc.php does not exist. Be sure to copy /include/config.inc.php.dist to /include/config.inc.php and edit the file accordingly.");
 }
 
 if (!class_exists('ParseXML')) require_once("./include/class.parsexml.php");
@@ -35,6 +33,7 @@ $Reflector->SetXMLFile($Service['XMLFile']);
 
 $Reflector->LoadXML();
 
+/*
 if ($CallingHome['Active']) {
 
     $CallHomeNow = false;
@@ -77,6 +76,8 @@ if ($CallingHome['Active']) {
     $Hash = "";
 }
 ?>
+*/
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,7 +153,7 @@ if ($CallingHome['Active']) {
             <li<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php">Last Heard</a></li>
             <li<?php echo ($_GET['show'] == "repeaters") ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php?show=repeaters">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
         </ul>
-        <span class="navbar-text px-2">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v1.1.1 <?php echo $PageOptions['LocalModification']; ?></span>
+        <span class="navbar-text px-2">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v1.1.2 <?php echo $PageOptions['LocalModification']; ?></span>
         <span class="navbar-text px-2">Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
     </div>
 </nav>
