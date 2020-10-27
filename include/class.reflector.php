@@ -292,27 +292,6 @@ class xReflector {
       return $out;
    }
 
-   /*
-   public function GetModuleOfNode($Node) {
-      die("FUNCTION DEPRECATED...");
-      $Node = trim(str_replace("   ", "-", $Node));
-      $Node = trim(str_replace("  ", "-", $Node));
-      $Node = trim(str_replace(" ", "-", $Node));
-      $found  = false;
-      $i      = 0;
-      $Module = "";
-      while (!$found && $i<$this->NodeCount()) {
-         if (strpos($Node, $this->Nodes[$i]->GetFullCallsign()) !== false) {
-            $Module = $this->Nodes[$i]->GetLinkedModule();
-            $found = true;
-         }
-
-         $i++;
-      }
-      return $Module;
-   }
-   */
-
    public function GetCallSignsInModules($Module) {
       $out = array();
       for ($i=0;$i<$this->NodeCount();$i++) {
@@ -332,41 +311,6 @@ class xReflector {
       }
       return $out;
    }
-   
-   /*
-   public function SetCallingHome($CallingHomeVariables, $Hash) {
-
-      if (!isset($CallingHomeVariables['Active']))                {    $CallingHomeVariables['Active']            = false; }
-      if (!isset($CallingHomeVariables['MyDashBoardURL']))        {    $CallingHomeVariables['MyDashBoardURL']    = '';    }
-      if (!isset($CallingHomeVariables['ServerURL']))             {    $CallingHomeVariables['ServerURL']         = '';    }
-      if (!isset($CallingHomeVariables['Country']))               {    $CallingHomeVariables['Country']           = '';    }
-      if (!isset($CallingHomeVariables['Comment']))               {    $CallingHomeVariables['Comment']           = '';    }
-      if (!isset($CallingHomeVariables['OverrideIPAddress']))     {    $CallingHomeVariables['OverrideIPAddress'] = false; }
-      if (!isset($CallingHomeVariables['InterlinkFile']))         {    $CallingHomeVariables['InterlinkFile']     = '';    }
-
-      if (!file_exists($CallingHomeVariables['InterlinkFile']))   {
-         $this->Interlinkfile      = '';
-         $this->Transferinterlink  = false;
-      }
-      else {
-         $this->Transferinterlink  = true;
-         $this->Interlinkfile      = $CallingHomeVariables['InterlinkFile'];
-      }
-
-      $this->CallingHomeActive          = ($CallingHomeVariables['Active'] === true);
-      $this->CallingHomeHash            = $Hash;
-      $this->CallingHomeDashboardURL    = $CallingHomeVariables['MyDashBoardURL'];
-      $this->CallingHomeServerURL       = $CallingHomeVariables['ServerURL'];
-      $this->CallingHomeCountry         = $CallingHomeVariables['Country'];
-      $this->CallingHomeComment         = $CallingHomeVariables['Comment'];
-      $this->CallingHomeOverrideIP      = $CallingHomeVariables['OverrideIPAddress'];
-
-   }
-
-   public function PushCallingHome() {
-      $CallingHome = @fopen($this->CallingHomeServerURL."?ReflectorName=".$this->ReflectorName."&ReflectorUptime=".$this->ServiceUptime."&ReflectorHash=".$this->CallingHomeHash."&DashboardURL=".$this->CallingHomeDashboardURL."&Country=".urlencode($this->CallingHomeCountry)."&Comment=".urlencode($this->CallingHomeComment)."&OverrideIP=".$this->CallingHomeOverrideIP, "r");
-   }
-   */
 
    public function ReadInterlinkFile() {
       if (file_exists($this->Interlinkfile) && (is_readable($this->Interlinkfile))) {
@@ -421,20 +365,6 @@ class xReflector {
    <reflectorversion>'.$this->Version.'</reflectorversion>
 </reflector>';
    }
-
-   /*
-   public function CallHome() {
-      $xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<query>CallingHome</query>'.$this->ReflectorXML.$this->InterlinkXML;
-      $p = @stream_context_create(array('http' => array('header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-                                                       'method'  => 'POST',
-                                                       'content' => http_build_query(array('xml' => $xml)) )));
-      $result = @file_get_contents($this->CallingHomeServerURL, false, $p);
-      if ($result === false) {
-         die("CONNECTION FAILED!");
-      }
-   }
-   */
 
    public function InterlinkCount() {
       return count($this->Interlinks);
