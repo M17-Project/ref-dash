@@ -19,7 +19,7 @@ if (file_exists("./include/config.inc.php")) {
     die("config.inc.php does not exist. Be sure to copy /include/config.inc.php.dist to /include/config.inc.php and edit the file accordingly.");
 }
 
-if (!class_exists('ParseXML')) require_once("./include/class.parsexml.php");
+//if (!class_exists('ParseXML')) require_once("./include/class.parsexml.php");
 if (!class_exists('Node')) require_once("./include/class.node.php");
 if (!class_exists('xReflector')) require_once("./include/class.reflector.php");
 if (!class_exists('Station')) require_once("./include/class.station.php");
