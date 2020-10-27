@@ -43,7 +43,7 @@ for ($i=0;$i<$Reflector->NodeCount();$i++) {
 			case 'A' : echo '23cm'; break;
 			case 'B' : echo '70cm'; break;
 			case 'C' : echo '2m'; break;
-			case 'D' : echo 'Dongle'; break;
+			case 'D' : echo 'DV Client'; break;
 			case 'G' : echo 'Internet-Gateway'; break;
 			default  : echo '';
 		}
