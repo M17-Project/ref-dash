@@ -33,49 +33,6 @@ $Reflector->SetXMLFile($Service['XMLFile']);
 
 $Reflector->LoadXML();
 
-/*
-if ($CallingHome['Active']) {
-
-    $CallHomeNow = false;
-    if (!file_exists($CallingHome['HashFile'])) {
-        $Hash = CreateCode(16);
-        $LastSync = 0;
-        $Ressource = @fopen($CallingHome['HashFile'], "w");
-        if ($Ressource) {
-            @fwrite($Ressource, "<?php\n");
-            @fwrite($Ressource, "\n" . '$LastSync = 0;');
-            @fwrite($Ressource, "\n" . '$Hash     = "' . $Hash . '";');
-            @fwrite($Ressource, "\n\n" . '?>');
-            @fclose($Ressource);
-            @exec("chmod 777 " . $CallingHome['HashFile']);
-            $CallHomeNow = true;
-        }
-    } else {
-        include($CallingHome['HashFile']);
-        if ($LastSync < (time() - $CallingHome['PushDelay'])) {
-            $Ressource = @fopen($CallingHome['HashFile'], "w");
-            if ($Ressource) {
-                @fwrite($Ressource, "<?php\n");
-                @fwrite($Ressource, "\n" . '$LastSync = ' . time() . ';');
-                @fwrite($Ressource, "\n" . '$Hash     = "' . $Hash . '";');
-                @fwrite($Ressource, "\n\n" . '?>');
-                @fclose($Ressource);
-            }
-            $CallHomeNow = true;
-        }
-    }
-
-    if ($CallHomeNow || isset($_GET['callhome'])) {
-        $Reflector->SetCallingHome($CallingHome, $Hash);
-        $Reflector->ReadInterlinkFile();
-        $Reflector->PrepareInterlinkXML();
-        $Reflector->PrepareReflectorXML();
-        $Reflector->CallHome();
-    }
-} else {
-    $Hash = "";
-}
-*/
 ?>
 
 <!DOCTYPE html>
@@ -161,16 +118,6 @@ if ($CallingHome['Active']) {
     <div class="container-fluid">
         <div class="row">
             <?php 
-                /* Do we really want to keep calling home?
-                if ($CallingHome['Active']) {
-                    if (!is_readable($CallingHome['HashFile']) && (!is_writeable($CallingHome['HashFile']))) {
-                        echo '
-                            <div class="error">
-                                your private hash in ' . $CallingHome['HashFile'] . ' could not be created, please check your config file and the permissions for the defined folder.
-                            </div>';
-                    }
-                }
-                */
                 switch ($_GET['show']) {
                     case 'users'      :
                         require_once("./include/users.php");
@@ -199,12 +146,9 @@ if ($CallingHome['Active']) {
 <!-- Bootstrap core JavaScript
  ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="js/bootstrap.bundle.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug
-<script src="js/ie10-viewport-bug-workaround.js"></script>
-        -->
 </body>
 </html>
