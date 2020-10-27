@@ -292,6 +292,7 @@ class xReflector {
       return $out;
    }
 
+   /*
    public function GetModuleOfNode($Node) {
       die("FUNCTION DEPRECATED...");
       $Node = trim(str_replace("   ", "-", $Node));
@@ -310,6 +311,7 @@ class xReflector {
       }
       return $Module;
    }
+   */
 
    public function GetCallSignsInModules($Module) {
       $out = array();
@@ -330,7 +332,8 @@ class xReflector {
       }
       return $out;
    }
-
+   
+   /*
    public function SetCallingHome($CallingHomeVariables, $Hash) {
 
       if (!isset($CallingHomeVariables['Active']))                {    $CallingHomeVariables['Active']            = false; }
@@ -363,6 +366,7 @@ class xReflector {
    public function PushCallingHome() {
       $CallingHome = @fopen($this->CallingHomeServerURL."?ReflectorName=".$this->ReflectorName."&ReflectorUptime=".$this->ServiceUptime."&ReflectorHash=".$this->CallingHomeHash."&DashboardURL=".$this->CallingHomeDashboardURL."&Country=".urlencode($this->CallingHomeCountry)."&Comment=".urlencode($this->CallingHomeComment)."&OverrideIP=".$this->CallingHomeOverrideIP, "r");
    }
+   */
 
    public function ReadInterlinkFile() {
       if (file_exists($this->Interlinkfile) && (is_readable($this->Interlinkfile))) {
@@ -418,6 +422,7 @@ class xReflector {
 </reflector>';
    }
 
+   /*
    public function CallHome() {
       $xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <query>CallingHome</query>'.$this->ReflectorXML.$this->InterlinkXML;
@@ -429,6 +434,7 @@ class xReflector {
          die("CONNECTION FAILED!");
       }
    }
+   */
 
    public function InterlinkCount() {
       return count($this->Interlinks);
