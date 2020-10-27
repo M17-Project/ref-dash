@@ -9,7 +9,7 @@
 		<th>Protocol</th>
 		<th>Module</th><?php
 
-if ($PageOptions['RepeatersPage']['IPModus'] != 'HideIP') {
+if ($PageOptions['LinksPage']['IPModus'] != 'HideIP') {
 	echo '
 	<th>IP</th>';
 }
@@ -53,12 +53,12 @@ for ($i=0;$i<$Reflector->NodeCount();$i++) {
 	<td>'.FormatSeconds(time()-$Reflector->Nodes[$i]->GetConnectTime()).' s</td>
 	<td>'.$Reflector->Nodes[$i]->GetProtocol().'</td>
 	<td>'.$Reflector->Nodes[$i]->GetLinkedModule().'</td>';
-	if ($PageOptions['RepeatersPage']['IPModus'] != 'HideIP') {
+	if ($PageOptions['LinksPage']['IPModus'] != 'HideIP') {
 		echo '<td>';
 		$Bytes = explode(".", $Reflector->Nodes[$i]->GetIP());
-		$MC = $PageOptions['RepeatersPage']['MasqueradeCharacter'];
+		$MC = $PageOptions['LinksPage']['MasqueradeCharacter'];
 		if ($Bytes !== false && count($Bytes) == 4) {
-			switch ($PageOptions['RepeatersPage']['IPModus']) {
+			switch ($PageOptions['LinksPage']['IPModus']) {
 				case 'ShowLast1ByteOfIP':
 					echo $MC.'.'.$MC.'.'.$MC.'.'.$Bytes[3];
 					break;
@@ -85,7 +85,7 @@ for ($i=0;$i<$Reflector->NodeCount();$i++) {
 		echo '</td>';
    }
    echo '</tr>';
-   if ($i == $PageOptions['RepeatersPage']['LimitTo']) { $i = $Reflector->NodeCount()+1; }
+   if ($i == $PageOptions['LinksPage']['LimitTo']) { $i = $Reflector->NodeCount()+1; }
 }
 
 ?>

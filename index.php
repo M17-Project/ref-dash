@@ -108,7 +108,7 @@ $Reflector->LoadXML();
     <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php">Last Heard</a></li>
-            <li<?php echo ($_GET['show'] == "repeaters") ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php?show=repeaters">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
+            <li<?php echo ($_GET['show'] == "links") ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php?show=links">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
         </ul>
         <span class="navbar-text px-2">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v1.1.2 <?php echo $PageOptions['LocalModification']; ?></span>
         <span class="navbar-text px-2">Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
@@ -122,8 +122,8 @@ $Reflector->LoadXML();
                     case 'users'      :
                         require_once("./include/users.php");
                         break;
-                    case 'repeaters'  :
-                        require_once("./include/repeaters.php");
+                    case 'links'  :
+                        require_once("./include/links.php");
                         break;
                     default           :
                         require_once("./include/users.php");

@@ -27,10 +27,10 @@ $PageOptions['PageRefreshActive']                    = true;                    
 $PageOptions['PageRefreshDelay']                     = '10000';                            // Page refresh time in miliseconds
 
 
-$PageOptions['RepeatersPage'] = array();
-$PageOptions['RepeatersPage']['LimitTo']             = 99;                                 // Number of Repeaters to show
-$PageOptions['RepeatersPage']['IPModus']             = 'ShowLast2ByteOfIP';                // See possible options above
-$PageOptions['RepeatersPage']['MasqueradeCharacter'] = '*';                                // Character used for  masquerade
+$PageOptions['LinksPage'] = array();
+$PageOptions['LinksPage']['LimitTo']                 = 99;                                 // Number of Links to show
+$PageOptions['LinksPage']['IPModus']                 = 'ShowLast2ByteOfIP';                // See possible options above
+$PageOptions['LinksPage']['MasqueradeCharacter']     = '*';                                // Character used for  masquerade
 
 
 $PageOptions['PeerPage'] = array();
