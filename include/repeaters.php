@@ -29,7 +29,7 @@ for ($i=0;$i<$Reflector->NodeCount();$i++) {
 		echo '<a href="#" class="tip"><img src="./images/flags/'.$Flag.'.svg" class="table-flag" alt="'.$Name.'"><span>'.$Name.'</span></a>';
 	}
 	echo '</td>
-	<td>'.$Reflector->Nodes[$i]->GetCallSign();
+	<td>'
 	if ($Reflector->Nodes[$i]->GetSuffix() != "") echo '-'.$Reflector->Nodes[$i]->GetSuffix();
 	echo .$Reflector->Nodes[$i]->GetCallSign();
 	if ($Reflector->Nodes[$i]->GetSuffix() != "") { echo '-'.$Reflector->Nodes[$i]->GetSuffix(); }
