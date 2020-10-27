@@ -1,13 +1,11 @@
 <?php
 
 /*
- *  This dashboard is being developed by the DVBrazil Team as a courtesy to
- *  the XLX Multiprotocol Gateway Reflector Server project.
- *  The dashboard is based of the Bootstrap dashboard template.
+ *  This dashboard is developed by KC1AWV for the mrefd M17
+ *  reflector system. It is derived from the XLX dashboard
+ *  originally developed by the DVBrazil team.
  * 
- *  This code is further edited by KC1AWV for the M17 Reflector M17-M17
- * 
- *  version 1.1.0 - Bootstrap 4.5
+ *  version 1.1.2
 */
 
 if (file_exists("./include/functions.php")) {
@@ -18,7 +16,7 @@ if (file_exists("./include/functions.php")) {
 if (file_exists("./include/config.inc.php")) {
     require_once("./include/config.inc.php");
 } else {
-    die("config.inc.php does not exist.");
+    die("config.inc.php does not exist. Be sure to copy /include/config.inc.php.dist to /include/config.inc.php and edit the file accordingly.");
 }
 
 if (!class_exists('ParseXML')) require_once("./include/class.parsexml.php");
@@ -35,48 +33,8 @@ $Reflector->SetXMLFile($Service['XMLFile']);
 
 $Reflector->LoadXML();
 
-if ($CallingHome['Active']) {
-
-    $CallHomeNow = false;
-    if (!file_exists($CallingHome['HashFile'])) {
-        $Hash = CreateCode(16);
-        $LastSync = 0;
-        $Ressource = @fopen($CallingHome['HashFile'], "w");
-        if ($Ressource) {
-            @fwrite($Ressource, "<?php\n");
-            @fwrite($Ressource, "\n" . '$LastSync = 0;');
-            @fwrite($Ressource, "\n" . '$Hash     = "' . $Hash . '";');
-            @fwrite($Ressource, "\n\n" . '?>');
-            @fclose($Ressource);
-            @exec("chmod 777 " . $CallingHome['HashFile']);
-            $CallHomeNow = true;
-        }
-    } else {
-        include($CallingHome['HashFile']);
-        if ($LastSync < (time() - $CallingHome['PushDelay'])) {
-            $Ressource = @fopen($CallingHome['HashFile'], "w");
-            if ($Ressource) {
-                @fwrite($Ressource, "<?php\n");
-                @fwrite($Ressource, "\n" . '$LastSync = ' . time() . ';');
-                @fwrite($Ressource, "\n" . '$Hash     = "' . $Hash . '";');
-                @fwrite($Ressource, "\n\n" . '?>');
-                @fclose($Ressource);
-            }
-            $CallHomeNow = true;
-        }
-    }
-
-    if ($CallHomeNow || isset($_GET['callhome'])) {
-        $Reflector->SetCallingHome($CallingHome, $Hash);
-        $Reflector->ReadInterlinkFile();
-        $Reflector->PrepareInterlinkXML();
-        $Reflector->PrepareReflectorXML();
-        $Reflector->CallHome();
-    }
-} else {
-    $Hash = "";
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,9 +108,9 @@ if ($CallingHome['Active']) {
     <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php">Last Heard</a></li>
-            <li<?php echo ($_GET['show'] == "repeaters") ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php?show=repeaters">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
+            <li<?php echo ($_GET['show'] == "links") ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php?show=links">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
         </ul>
-        <span class="navbar-text px-2">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v1.1.1 <?php echo $PageOptions['LocalModification']; ?></span>
+        <span class="navbar-text px-2">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v1.2.0 <?php echo $PageOptions['LocalModification']; ?></span>
         <span class="navbar-text px-2">Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
     </div>
 </nav>
@@ -160,22 +118,12 @@ if ($CallingHome['Active']) {
     <div class="container-fluid">
         <div class="row">
             <?php 
-                /* Do we really want to keep calling home?
-                if ($CallingHome['Active']) {
-                    if (!is_readable($CallingHome['HashFile']) && (!is_writeable($CallingHome['HashFile']))) {
-                        echo '
-                            <div class="error">
-                                your private hash in ' . $CallingHome['HashFile'] . ' could not be created, please check your config file and the permissions for the defined folder.
-                            </div>';
-                    }
-                }
-                */
                 switch ($_GET['show']) {
                     case 'users'      :
                         require_once("./include/users.php");
                         break;
-                    case 'repeaters'  :
-                        require_once("./include/repeaters.php");
+                    case 'links'  :
+                        require_once("./include/links.php");
                         break;
                     default           :
                         require_once("./include/users.php");
@@ -198,12 +146,9 @@ if ($CallingHome['Active']) {
 <!-- Bootstrap core JavaScript
  ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="js/bootstrap.bundle.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug
-<script src="js/ie10-viewport-bug-workaround.js"></script>
-        -->
 </body>
 </html>

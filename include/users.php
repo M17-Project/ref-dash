@@ -85,7 +85,6 @@ if (isset($_GET['do'])) {
             <th>Flag</th>
             <th>Callsign</th>
             <th>Suffix</th>
-            <th>DPRS</th>
             <th>Via / Peer</th>
             <th>Last heard</th>
             <th><img src="./images/ear.png" alt="Listening on" /></th>
@@ -148,13 +147,12 @@ if (isset($_GET['do'])) {
                             echo '</td>
                             <td class="align-middle"><a href="https://www.qrz.com/db/' . $Reflector->Stations[$i]->GetCallsignOnly() . '" class="pl" target="_blank">' . $Reflector->Stations[$i]->GetCallsignOnly() . '</a></td>
                             <td class="align-middle">' . $Reflector->Stations[$i]->GetSuffix() . '</td>
-                            <td class="align-middle"><a href="http://www.aprs.fi/' . $Reflector->Stations[$i]->GetCallsignOnly() . '" class="pl" target="_blank"><img src="./images/sat.png" alt=""></a></td>
                             <td class="align-middle">' . $Reflector->Stations[$i]->GetVia();
                             if ($Reflector->Stations[$i]->GetPeer() != $Reflector->GetReflectorName()) {
                                 echo ' / ' . $Reflector->Stations[$i]->GetPeer();
                             }
                             echo '</td>
-                            <td>' . @date("d.m.Y H:i", $Reflector->Stations[$i]->GetLastHeardTime()) . '<br />(about ' . elapsedTime($Reflector->Stations[$i]->GetLastHeardTime()) . ' ago.)</td>
+                            <td>' . @date("d.m.Y H:i", $Reflector->Stations[$i]->GetLastHeardTime()) . '<br />' . elapsedTime($Reflector->Stations[$i]->GetLastHeardTime()) . ' ago</td>
                             <td class="align-middle">' . $Reflector->Stations[$i]->GetModule() . '</td>
                         </tr>';
                 }
@@ -168,7 +166,6 @@ if (isset($_GET['do'])) {
 
 <div class="col-md-3">
     <?php echo '<a href="' . $PageOptions['Homepage'] . '"><img class="mx-auto d-none d-md-block" src="./images/' . $PageOptions['Logo'] . '" width="50%"></a>'; ?>
-    <!-- <a href="https://m17project.org"><img class="mx-auto d-none d-md-block" src="./images/m17_logo.svg" width="50%"></a> -->
     <table class="table table-sm table-striped table-hover">
         <?php 
             $Modules = $Reflector->GetModules();
@@ -196,7 +193,7 @@ if (isset($_GET['do'])) {
                     $Displayname = $Reflector->GetCallsignAndSuffixByID($Users[$j]);
                     echo '
                         <tr>
-                            <td><a href="http://www.aprs.fi/'.$Displayname.'" class="pl" target="_blank">'.$Displayname.'</a> </td>
+                            <td>'.$Displayname.'</td>
                         </tr>';
                         $UserCheckedArray[] = $Users[$j];
                 }

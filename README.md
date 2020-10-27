@@ -2,6 +2,10 @@
 
 This is the dashboard as seen on [M17-M17 Reflector](https://ref.m17.link) to be used with mrefd.
 
+### Version 1.2.0 - code cleanup
+
+Possible breaking change, a rename of "Repeaters" to "Links" requires use of a new copy of the configuration file to be used. Backup your old config.inc.php and follow the setup process below to update to the new configuration.
+
 ### Clone dashboard to /var/www
 
 ```bash
