@@ -193,7 +193,7 @@ if (isset($_GET['do'])) {
                     $Displayname = $Reflector->GetCallsignAndSuffixByID($Users[$j]);
                     echo '
                         <tr>
-                            <td><a href="http://www.aprs.fi/'.$Displayname.'" class="pl" target="_blank">'.$Displayname.'</a> </td>
+                            <td>'.$Displayname.'</td>
                         </tr>';
                         $UserCheckedArray[] = $Users[$j];
                 }
