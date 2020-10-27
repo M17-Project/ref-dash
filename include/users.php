@@ -85,7 +85,6 @@ if (isset($_GET['do'])) {
             <th>Flag</th>
             <th>Callsign</th>
             <th>Suffix</th>
-            <th>DPRS</th>
             <th>Via / Peer</th>
             <th>Last heard</th>
             <th><img src="./images/ear.png" alt="Listening on" /></th>
@@ -148,7 +147,6 @@ if (isset($_GET['do'])) {
                             echo '</td>
                             <td class="align-middle"><a href="https://www.qrz.com/db/' . $Reflector->Stations[$i]->GetCallsignOnly() . '" class="pl" target="_blank">' . $Reflector->Stations[$i]->GetCallsignOnly() . '</a></td>
                             <td class="align-middle">' . $Reflector->Stations[$i]->GetSuffix() . '</td>
-                            <td class="align-middle"><a href="http://www.aprs.fi/' . $Reflector->Stations[$i]->GetCallsignOnly() . '" class="pl" target="_blank"><img src="./images/sat.png" alt=""></a></td>
                             <td class="align-middle">' . $Reflector->Stations[$i]->GetVia();
                             if ($Reflector->Stations[$i]->GetPeer() != $Reflector->GetReflectorName()) {
                                 echo ' / ' . $Reflector->Stations[$i]->GetPeer();
