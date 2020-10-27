@@ -49,7 +49,7 @@ $PageOptions['ModuleNames']['D']                     = '';
 
 $PageOptions['MetaDescription']                      = 'MREFD is an M17 Reflector System for Ham Radio Operators.';  // Meta Tag Values, useful for Search Engines
 $PageOptions['MetaKeywords']                         = 'Ham Radio, M17, XReflector, ';                               // Meta Tag Values, useful for Search Engines
-$PageOptions['MetaAuthor']                           = 'N7TAE, KC1AWV';                                              // Meta Tag Values, useful for Search Engines
+$PageOptions['MetaAuthor']                           = 'KC1AWV';                                                     // Meta Tag Values, useful for Search Engines
 $PageOptions['MetaRevisit']                          = 'After 30 Days';                                              // Meta Tag Values, useful for Search Engines
 $PageOptions['MetaRobots']                           = 'index,follow';                                               // Meta Tag Values, useful for Search Engines
 
@@ -57,18 +57,6 @@ $PageOptions['UserPage']['ShowFilter']               = true;                    
 
 $Service['PIDFile']                                  = '/var/run/mrefd.pid';
 $Service['XMLFile']                                  = '/var/log/mrefd.xml';
-
-/* Do we really want to keep this? Let's disable it for now.
-$CallingHome['Active']                               = false;                              // xlx phone home, true or false
-$CallingHome['MyDashBoardURL']                       = 'http://your_dashboard';			       // dashboard url
-$CallingHome['ServerURL']                            = 'http://xlxapi.rlx.lu/api.php';     // database server, do not change !!!!
-$CallingHome['PushDelay']                            = 600;                                // push delay in seconds
-$CallingHome['Country']                              = "your_country";                     // Country
-$CallingHome['Comment']                              = "your_comment";                     // Comment. Max 100 character
-$CallingHome['HashFile']                             = "/tmp/callinghome.php";             // Make sure the apache user has read and write permissions in this folder.
-$CallingHome['OverrideIPAddress']                    = "";                                 // Insert your IP address here. Leave blank for autodetection. No need to enter a fake address.
-$CallingHome['InterlinkFile']                        = "/usr/local/etc/mrefd.linklist";    // Path to interlink file
-*/
 
 /*
   include an extra config file for people who dont like to mess with shipped config.inc.php
