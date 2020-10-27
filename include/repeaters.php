@@ -3,7 +3,7 @@
 		<th>#</th>
 		<th>Flag</th>
 		<th>DV Station</th>
-		<th>Band</th>
+		<th>Via</th>
 		<th>Last Heard</th>
 		<th>Linked for</th>
 		<th>Protocol</th>
