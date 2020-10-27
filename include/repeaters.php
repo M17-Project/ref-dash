@@ -29,11 +29,11 @@ for ($i=0;$i<$Reflector->NodeCount();$i++) {
 		echo '<a href="#" class="tip"><img src="./images/flags/'.$Flag.'.svg" class="table-flag" alt="'.$Name.'"><span>'.$Name.'</span></a>';
 	}
 	echo '</td>
-	<td><a href="http://www.aprs.fi/'.$Reflector->Nodes[$i]->GetCallSign();
+	<td>'.$Reflector->Nodes[$i]->GetCallSign();
 	if ($Reflector->Nodes[$i]->GetSuffix() != "") echo '-'.$Reflector->Nodes[$i]->GetSuffix();
-	echo '" class="pl" target="_blank">'.$Reflector->Nodes[$i]->GetCallSign();
+	echo .$Reflector->Nodes[$i]->GetCallSign();
 	if ($Reflector->Nodes[$i]->GetSuffix() != "") { echo '-'.$Reflector->Nodes[$i]->GetSuffix(); }
-	echo '</a></td>
+	echo '</td>
 	<td>';
 	if ($Reflector->Nodes[$i]->GetPrefix() == 'M17') {
 		switch ($Reflector->Nodes[$i]->GetPrefix()) {
