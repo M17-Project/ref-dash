@@ -4,7 +4,7 @@
  *  This dashboard is developed by KC1AWV for the mrefd M17
  *  reflector system. It is derived from the XLX dashboard
  *  originally developed by the DVBrazil team.
- * 
+ *
  *  version 1.1.2
 */
 
@@ -109,6 +109,7 @@ $Reflector->LoadXML();
         <ul class="navbar-nav mr-auto">
             <li<?php echo (($_GET['show'] == "users") || ($_GET['show'] == "")) ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php">Last Heard</a></li>
             <li<?php echo ($_GET['show'] == "links") ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php?show=links">Links (<?php echo $Reflector->NodeCount();  ?>)</a></li>
+            <li<?php echo ($_GET['show'] == "peers") ? ' class="nav-item active"' : ''; ?>><a class="nav-link" href="./index.php?show=peers">Peers (<?php echo $Reflector->PeerCount();  ?>)</a></li>
         </ul>
         <span class="navbar-text px-2">mrefd v<?php echo $Reflector->GetVersion(); ?> - Dashboard v1.2.0 <?php echo $PageOptions['LocalModification']; ?></span>
         <span class="navbar-text px-2">Service uptime: <?php echo FormatSeconds($Reflector->GetServiceUptime()); ?></span>
@@ -117,16 +118,19 @@ $Reflector->LoadXML();
 <main role="main">
     <div class="container-fluid">
         <div class="row">
-            <?php 
+            <?php
                 switch ($_GET['show']) {
                     case 'users'      :
                         require_once("./include/users.php");
                         break;
-                    case 'links'  :
-                        require_once("./include/links.php");
-                        break;
-                    default           :
-                        require_once("./include/users.php");
+						case 'links'  :
+							require_once("./include/links.php");
+							break;
+						case 'peers'  :
+							require_once("./include/peers.php");
+							break;
+						default           :
+                        	require_once("./include/users.php");
                 }
 
                 ?>
