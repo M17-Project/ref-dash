@@ -18,17 +18,17 @@ if ($Result) {
 fclose($Result);
 ?>
 
-<table class="table table-striped table-hover">
+<table class="table table-sm table-striped table-hover">
 	<tr class="table-center">
-		<th class="col-md-1">#</th>
-		<th class="col-md-2">XLX Peer</th>
-		<th class="col-md-2">Last Heard</th>
-		<th class="col-md-2">Linked for</th>
-		<th class="col-md-2">Protocol</th>
-		<th class="col-md-1">Module</th><?php
+		<th>#</th>
+		<th>M17 Peer</th>
+		<th>Last Heard</th>
+		<th>Linked for</th>
+		<th>Protocol</th>
+		<th>Module</th><?php
 
 if ($PageOptions['PeerPage']['IPModus'] != 'HideIP') {
-	echo '<th class="col-md-2">IP</th>';
+	echo '<th>IP</th>';
 }
 
 ?>
