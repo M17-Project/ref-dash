@@ -21,7 +21,7 @@ fclose($Result);
 <table class="table table-striped table-hover">
 	<tr class="table-center">
 		<th class="col-md-1">#</th>
-		<th class="col-md-2">XLX Peer</th>
+		<th class="col-md-2">M17 Peer</th>
 		<th class="col-md-2">Last Heard</th>
 		<th class="col-md-2">Linked for</th>
 		<th class="col-md-2">Protocol</th>
