@@ -2,9 +2,9 @@
 
 This is the dashboard as seen on [M17-M17 Reflector](https://ref.m17.link) to be used with mrefd.
 
-### Version 1.2.0 - code cleanup
+### Version 1.3.0 - mrefd v0.3.0 and introducing health checks!
 
-Possible breaking change, a rename of "Repeaters" to "Links" requires use of a new copy of the configuration file to be used. Backup your old config.inc.php and follow the setup process below to update to the new configuration.
+Non-breaking change to config.inc.php - if you intend on using the health checks, either create a new config file from config.inc.php.dist or insert the line containing $CallHome['GUID'] to your existing configuration file. Follow the instructions below for setting up health checks!
 
 ### Clone dashboard to /var/www
 
