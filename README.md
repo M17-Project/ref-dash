@@ -30,7 +30,7 @@ sudo cp config.inc.php.dist config.inc.php
 M17 Reflector Dashboard can now send health check data to the M17 Reflector team.
 - Send an email to contact@m17.link with your reflector name and a contact email for the responsible party of the reflector.
 - You will receive two emails when registration is completed, one to verify ownership of the contact email, and one with your GUID.
-- Place the GUID you received into the config.inc.php line $CallHome['GUID'] line.
+- Place the GUID you received into the config.inc.php $CallHome['GUID'] line.
 - Set up a cron job to run the check.php script every 5 minutes.
 ```bash
 sudo crontab -e
@@ -47,8 +47,6 @@ sudo crontab -e
   - Logo - set this to the filename of your logo, defaults to M17 logo
   - LocalModification - set this to your local modification version number if you modify the main code
   - CallHome GUID - Set this to your assigned Health Check GUID
-
-**Do not** enable the calling home feature. This feature is not appropriate for mrefd.
 
 ### Caveat
 
