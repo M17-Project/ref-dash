@@ -39,7 +39,7 @@ When this feature is finished, a status update will show here as well as be anno
   - Homepage - set this to your homepage, defaults to m17project
   - Logo - set this to the filename of your logo, defaults to M17 logo
   - LocalModification - set this to your local modification version number if you modify the main code
-  - CallHome GUID - Set this to your assigned Health Check GUID
+  <!-- - CallHome GUID - Set this to your assigned Health Check GUID -->
 
 ### Caveat
 
