@@ -26,26 +26,10 @@ sudo cp config.inc.php.dist config.inc.php
 - Logo file
   - place your logo in /images (SVG preferred) and edit config.ini.php to change the logo image. Defaults to the M17 logo.
 
-### Health Checks
-M17 Reflector Dashboard can now send health check data to the M17 Reflector team.
+### Health Checks - DEPRECATED AS OF 31 JAN 2021
+The new reflectors list [https://reflectors.m17.link](https://reflectors.m17.link) is being coded to provide active checks from the M17 Reflectors server.
 
-In order to reduce spam, the M17 Check system is a double opt-in transaction. What this means is you submit your address to the M17 Reflector Team, and you will be manually sent an email to verify ownership of that address. If you should ever wish to stop receiving M17 Check emails, simply use the Unsubscribe link found in any notification email.
-
-To subscribe to the M17 Check service:
-- Send an email to contact@m17.link with your reflector name and a contact email for the responsible party of the reflector.
-- You will receive two emails when registration is completed, one to verify ownership of the contact email, and one with your GUID.
-- Place the GUID you received into the config.inc.php $CallHome['GUID'] line.
-- Set up a cron job to run the check.php script every 5 minutes.
-```bash
-sudo crontab -e
-
-*/5 * * * * cd /var/www/html && php check.php  # change the cd to wherever your system www root is located
-```
-**It is important that you set your cron job to run every 5 minutes, else your status will show "Late" or "Down"**
-
-If the M17 Check service does not receive a ping from your reflector when expected, your status will show "Late" on the reflector list. A grace period of another 5 minutes will wait for a late ping to arrive. If a ping is not received within the grace period, an email will be sent to the registered email address to let you know that your reflector may be offline. Once a new ping arrives, your status will show "Up", and you will receive an email notifying you of the status change.
-
-Again, as an effort to reduce spam, you will only receive *one* email notifying a reflector offline, and *one* email notifying you when it is back online.
+When this feature is finished, a status update will show here as well as be announced on the M17 Twitter feed.
 
 ### Files to edit
 - **include/config.inc.php** 
